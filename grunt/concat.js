@@ -28,8 +28,10 @@ module.exports = {
       'libs/angular/angular-translate-storage-local/angular-translate-storage-local.js',
 
       'src/js/*.js',
-      'src/js/directives/*.js',
+      'src/js/utilities/*.js',
       'src/js/services/*.js',
+      'src/js/directives/*.js',
+      
       'src/js/filters/*.js',
       'src/js/controllers/bootstrap.js'
     ],
