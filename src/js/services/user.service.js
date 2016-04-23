@@ -12,9 +12,8 @@ app.factory('UserService', UserService);
       
        
         service.GetByUsername = GetByUsername;
-        service.Create = Create;
-        service.Update = Update;
-        service.Delete = Delete;
+        service.GetAuthToken = GetAuthToken;
+    
  
         return service;
  
@@ -34,27 +33,34 @@ app.factory('UserService', UserService);
                     url: environmentUtil.getMCAppUrl() + restUrl
                 };
 
-               /* $http(httpConfig).success(function (data) {
+              //  $http(httpConfig).success(function (data) {
                     deferredGet.resolve(data);
-                }).error(function (error) {
-                    deferredGet.resolve(data);
-                }); */
-                deferredGet.resolve(data);
+              //  }).error(function (error) {
+                  //  deferredGet.resolve(data);
+               // }); 
+               
                 return deferredGet.promise;
         }
  
-        function Create(user) {
-            return $http.post('/api/users', user).then(handleSuccess, handleError('Error creating user'));
+        function GetAuthToken(){
+            var deferredGet = $q.defer();
+            var restUrl = '/clickandpay/myacc/login';
+              
+
+
+            $http({
+                  method: 'GET',
+                  url: environmentUtil.getMCAppUrl() + restUrl
+            }).then(function successCallback(response) {
+                    deferredGet.resolve(response);
+            }, function errorCallback(response) {
+                    deferredGet.reject(response);
+            });
+
+             return deferredGet.promise;
+         
         }
- 
-        function Update(user) {
-            return $http.put('/api/users/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
-        }
- 
-        function Delete(id) {
-            return $http.delete('/api/users/' + id).then(handleSuccess, handleError('Error deleting user'));
-        }
- 
+        
         // private functions
  
         function handleSuccess(res) {

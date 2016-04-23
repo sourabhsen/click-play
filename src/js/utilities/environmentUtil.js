@@ -13,6 +13,7 @@ app.factory('environmentUtil', environmentUtil);
          */
         function getUrl()
         {
+            debugger;
             var url = $location.protocol() + '://' + 'www.clickandpayindia.com'/*$location.host()*/;
 
             if ($location.port() !== 80) {

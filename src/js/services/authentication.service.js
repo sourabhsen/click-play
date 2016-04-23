@@ -10,6 +10,7 @@ app.factory('AuthenticationService', AuthenticationService);
         var service = {};
  
         service.Login = Login;
+        service.getToken = getToken;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
  
@@ -39,6 +40,16 @@ app.factory('AuthenticationService', AuthenticationService);
             //        callback(response);
             //    });
  
+        }
+
+        function getToken(){     
+              UserService.GetAuthToken().then(function(data){
+                    $rootScope.globals = {
+                         currentUser: {
+                                auth_token:data.api_key
+                        }
+                };
+              })
         }
  
         function SetCredentials(username, password) {
