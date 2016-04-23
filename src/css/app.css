@@ -952,6 +952,9 @@ body {
   .app-aside-folded .app-header .navbar-brand {
     display: block;
     padding: 0;
+  } 
+  .app-aside-folded .navbar-brand img{
+     width:80%;
   }
   .app-aside-fixed .app-aside:before {
     position: fixed;
@@ -3666,7 +3669,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-danger.dker,
 .bg-danger .dker {
-  background-color: #f21b1b;
+  background-color: #d12127;
 }
 
 .bg-danger.bg,

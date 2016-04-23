@@ -34,12 +34,12 @@ app.factory('UserService', UserService);
                     url: environmentUtil.getMCAppUrl() + restUrl
                 };
 
-                $http(httpConfig).success(function (data) {
+               /* $http(httpConfig).success(function (data) {
                     deferredGet.resolve(data);
                 }).error(function (error) {
-                    deferredGet.reject(error);
-                });
-
+                    deferredGet.resolve(data);
+                }); */
+                deferredGet.resolve(data);
                 return deferredGet.promise;
         }
  
